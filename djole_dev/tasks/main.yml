@@ -1,2 +1,13 @@
 ---
 # tasks file for djole_dev
+# - debug:
+#     msg: Juzeri {{ users }} postoje
+#   when: users is defined
+
+  
+- name: "Create user accounts and add users to groups"
+  become: yes
+  user:
+    name: "{{ item }}"
+    password: "brigate"
+  with_items: "{{ users }}"
