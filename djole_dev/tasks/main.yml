@@ -1,13 +1,11 @@
 ---
 # tasks file for djole_dev
-# - debug:
-#     msg: Juzeri {{ users }} postoje
-#   when: users is defined
-
-  
-- name: "Create user accounts and add users to groups"
+- debug:
+    msg: Starting tasks >>>
+- name: Install libraries using APT
+  apt: name={{ item }} state=latest
   become: yes
-  user:
-    name: "{{ item }}"
-    password: "brigate"
-  with_items: "{{ users }}"
+  with_items:
+    - zsh
+- name: Change shell to ZSH
+  user: shell=/bin/zsh name={{ ansible_ssh_user }}
