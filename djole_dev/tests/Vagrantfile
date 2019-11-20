@@ -2,8 +2,12 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  boxes = [
-    { :name => "ubuntu-box", :box => "kbi/ubuntu16.04" } #, { :name => "centos-box", :box => "kbi/centos7" }     
+  boxes = [    
+#    { :name => "mac", :box => "yzgyyang/macOS-10.14" }
+#    { :name => "osx-box", :box => "ashiq/osx-10.14" },
+    { :name => "mac_box", :box => "AndrewDryga/vagrant-box-osx" },
+    { :name => "ubuntu_box", :box => "ubuntu/trusty64" }
+#    { :name => "osx-box", :box => "jhcook/osx-elcapitan-10.11" }
   ]
   boxes.each do |opts|
     config.vm.define opts[:name] do |config|      

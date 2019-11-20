@@ -1,4 +1,10 @@
 ---
-# vars file for djole_dev
-# users:
-#   - djole
+### vars file for djole_dev
+packaged_programs:
+  common:
+    - zsh
+    - git
+  ubuntu:
+    - silversearcher-ag
+  mac:
+    - the_silver_searcher
