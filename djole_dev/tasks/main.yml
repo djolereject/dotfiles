@@ -4,17 +4,26 @@
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 - import_tasks: macos.yml
   when: ansible_distribution == 'MacOSX'
-  
+## zsh
 - name: Change current user shell
   user: shell=/bin/zsh name="{{ ansible_ssh_user }}"
   become: yes
 - name: Check if oh-my-zsh is installed
-  stat: path=~/.oh-my-zsh
+  stat: path="{{ paths.dotfiles + '.oh-my-zsh' }}"
   register: oh_my_zsh
 - name: install oh-my-zsh
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     version: master
-    dest: ~/.oh-my-zsh
+    dest: "{{ paths.dotfiles + '.oh-my-zsh' }}"
     update: False
   when: oh_my_zsh.stat.exists == False
+- name: copy zshrc to dotfiles
+  template:
+    src: zshrc.j2
+    dest: "{{ paths.dotfiles + '.zshrc' }}"
+- name: make symlink for zshrc
+  file:
+    src: "{{ paths.dotfiles + '.zshrc' }}"
+    dest: "~/.zshrc"
+    state: link

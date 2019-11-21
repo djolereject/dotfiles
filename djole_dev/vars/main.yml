@@ -8,3 +8,5 @@ packaged_programs:
     - silversearcher-ag
   mac:
     - the_silver_searcher
+paths:
+  dotfiles: ~/.dotfiles/
