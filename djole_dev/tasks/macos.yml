@@ -1,9 +1,13 @@
 ---
 ### tasks specific to OSX
-- name: install packages with brew
+- name: Update Homebrew
   homebrew:
     update_homebrew: yes
-    name: "{{ packaged_programs.common + packaged_programs.mac }}"
-    state: latest
-
-
+- name: Install packages with Brew
+  homebrew:
+    name: "{{ software.common + software.brew }}"
+    state: upgraded
+- name: Install packages with Brew Cask
+  homebrew_cask:
+    name: "{{ software.cask }}"
+    state: installed

@@ -1,12 +1,33 @@
 ---
 ### vars file for djole_dev
-packaged_programs:
-  common:
-    - zsh
-    - git
-  ubuntu:
-    - silversearcher-ag
-  mac:
-    - the_silver_searcher
+root_dotfiles: "~/.dotfiles/"
 paths:
-  dotfiles: ~/.dotfiles/
+  oh_my_zsh: "{{ root_dotfiles + '.oh-my-zsh' }}"
+  zshrc: "{{ root_dotfiles + '.zshrc' }}" 
+software:
+  common:
+    - python
+    - python3
+    - git
+    - zsh
+    - httpie
+  apt:
+    - silversearcher-ag
+    - vlc
+    - firefox
+    - slack
+    - emacs
+  brew:
+    - openssl
+    - coreutils
+    - the_silver_searcher
+    - tree
+  cask:
+    - qlstephen
+    - vlc
+    - firefox
+    - skype
+    - slack    
+    - emacs
+    - viber
+    - telegram

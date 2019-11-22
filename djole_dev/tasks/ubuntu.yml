@@ -2,6 +2,6 @@
 # tasks specific to ubuntu
 - name: Install packages with apt
   apt:
-    name: "{{ packaged_programs.common + packaged_programs.ubuntu }}"
+    name: "{{ software.common + software.apt }}"
     state: latest
   become: yes

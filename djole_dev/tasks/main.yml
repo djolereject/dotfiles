@@ -9,21 +9,21 @@
   user: shell=/bin/zsh name="{{ ansible_ssh_user }}"
   become: yes
 - name: Check if oh-my-zsh is installed
-  stat: path="{{ paths.dotfiles + '.oh-my-zsh' }}"
+  stat: path="{{ paths.oh_my_zsh }}"
   register: oh_my_zsh
 - name: install oh-my-zsh
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     version: master
-    dest: "{{ paths.dotfiles + '.oh-my-zsh' }}"
+    dest: "{{ paths.oh_my_zsh }}"
     update: False
   when: oh_my_zsh.stat.exists == False
 - name: copy zshrc to dotfiles
   template:
     src: zshrc.j2
-    dest: "{{ paths.dotfiles + '.zshrc' }}"
+    dest: "{{ paths.zshrc }}"
 - name: make symlink for zshrc
   file:
-    src: "{{ paths.dotfiles + '.zshrc' }}"
+    src: "{{ paths.zshrc }}"
     dest: "~/.zshrc"
     state: link
