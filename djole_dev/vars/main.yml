@@ -10,18 +10,24 @@ software:
     - python3
     - git
     - zsh
-    - httpie
+    - httpie    
   apt:
+    - rustc
     - silversearcher-ag
     - vlc
     - firefox
     - slack
+#    - 'fd-find'
     - emacs
   brew:
+    - rust
     - openssl
     - coreutils
     - the_silver_searcher
     - tree
+    - bat
+    - fd
+    - noti
   cask:
     - qlstephen
     - vlc

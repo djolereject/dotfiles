@@ -4,10 +4,6 @@
   homebrew:
     update_homebrew: yes
 - name: Install packages with Brew
-  homebrew:
-    name: "{{ software.common + software.brew }}"
-    state: upgraded
+  homebrew: name="{{ software.common + software.brew }}"
 - name: Install packages with Brew Cask
-  homebrew_cask:
-    name: "{{ software.cask }}"
-    state: installed
+  homebrew_cask: name="{{ software.cask }}"
