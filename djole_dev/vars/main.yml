@@ -1,10 +1,20 @@
 ---
 ### vars file for djole_dev
-root_dotfiles: "~/.dotfiles/"
-paths:
-  oh_my_zsh: "{{ root_dotfiles + '.oh-my-zsh' }}"
-  zshrc: "{{ root_dotfiles + '.zshrc' }}"
-  emacsd: "{{ root_dotfiles + '.emacs.d' }}"
+dotfiles: "~/.dotfiles/"
+shell: "{{ dotfiles + 'shell/' }}"
+zshrc:
+  path: "{{ shell + 'zshrc' }}"
+  link: "~/.zshrc"
+oh_my_zsh:
+  src: "https://github.com/robbyrussell/oh-my-zsh.git"
+  path: "{{ shell + '.oh-my-zsh' }}"
+aliases: "{{ shell + 'aliases' }}"
+env: "{{ shell + 'env' }}"
+
+emacs:
+  src: "https://github.com/djolereject/.emacs.d"
+  path: "{{ dotfiles + '.emacs.d' }}"
+  link: "~/.emacs.d"
 software:
   apt:
     - git

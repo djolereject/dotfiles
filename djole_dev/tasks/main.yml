@@ -8,38 +8,32 @@
 - name: Change current user shell
   user: shell=/bin/zsh name="{{ ansible_ssh_user }}"
   become: yes
-- name: Check if oh-my-zsh is installed
-  stat: path="{{ paths.oh_my_zsh }}"
-  register: oh_my_zsh
 - name: Install oh-my-zsh
   git:
-    repo: https://github.com/robbyrussell/oh-my-zsh.git
-    version: master
-    dest: "{{ paths.oh_my_zsh }}"
+    repo: "{{ oh_my_zsh.src }}"
+    dest: "{{ oh_my_zsh.path }}"
     update: False
-  when: oh_my_zsh.stat.exists == False
 - name: Copy zshrc to dotfiles
   template:
     src: zshrc.j2
-    dest: "{{ paths.zshrc }}"
+    dest: "{{ zshrc.path }}"
+- name: Copy aliases to dotfiles
+  template: src=aliases.j2 dest="{{ aliases }}"
+- name: Copy env to dotfiles
+  template: src=env.j2 dest="{{ env }}"
 - name: Make symlink for zshrc
   file:
-    src: "{{ paths.zshrc }}"
-    dest: "~/.zshrc"
+    src: "{{ zshrc.path }}"
+    dest: "{{ zshrc.link }}"
     state: link
 ## emacs
-- name: Check if Emacs is installed
-  stat: path="{{ paths.emacsd }}"
-  register: emacs
 - name: Copy emacs.d to dotfiles
   git:
-    repo: https://github.com/djolereject/.emacs.d
-    version: master
-    dest: "{{ paths.emacsd }}"
+    repo: "{{ emacs.src }}"
+    dest: "{{ emacs.path }}"
     update: False
-  when: emacs.stat.exists == False
 - name: Make symlink for Emacs
   file:
-    src: "{{ paths.emacsd }}"
-    dest: "~/.emacs.d"
+    src: "{{ emacs.path }}"
+    dest:  "{{ emacs.link }}"
     state: link

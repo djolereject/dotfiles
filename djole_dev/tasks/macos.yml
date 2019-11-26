@@ -7,3 +7,15 @@
   homebrew: name="{{ software.brew }}"
 - name: Install packages with Brew Cask
   homebrew_cask: name="{{ software.cask }}"
+## Dock settings
+- name: Automatically show and hide Dock
+  shell: defaults write com.apple.dock autohide -bool true
+- name: Move Dock to left
+  shell: defaults write com.apple.dock pinning -string start
+- name: Reset Dock
+  shell: killall Dock
+## Finder settings
+- name: List view in Finder by default
+  shell: defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+- name: Show extensions in Finder
+  shell: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
