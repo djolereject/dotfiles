@@ -11,19 +11,35 @@
 - name: Check if oh-my-zsh is installed
   stat: path="{{ paths.oh_my_zsh }}"
   register: oh_my_zsh
-- name: install oh-my-zsh
+- name: Install oh-my-zsh
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     version: master
     dest: "{{ paths.oh_my_zsh }}"
     update: False
   when: oh_my_zsh.stat.exists == False
-- name: copy zshrc to dotfiles
+- name: Copy zshrc to dotfiles
   template:
     src: zshrc.j2
     dest: "{{ paths.zshrc }}"
-- name: make symlink for zshrc
+- name: Make symlink for zshrc
   file:
     src: "{{ paths.zshrc }}"
     dest: "~/.zshrc"
+    state: link
+## emacs
+- name: Check if Emacs is installed
+  stat: path="{{ paths.emacsd }}"
+  register: emacs
+- name: Copy emacs.d to dotfiles
+  git:
+    repo: https://github.com/djolereject/.emacs.d
+    version: master
+    dest: "{{ paths.emacsd }}"
+    update: False
+  when: emacs.stat.exists == False
+- name: Make symlink for Emacs
+  file:
+    src: "{{ paths.emacsd }}"
+    dest: "~/.emacs.d"
     state: link

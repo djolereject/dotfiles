@@ -3,7 +3,8 @@
 root_dotfiles: "~/.dotfiles/"
 paths:
   oh_my_zsh: "{{ root_dotfiles + '.oh-my-zsh' }}"
-  zshrc: "{{ root_dotfiles + '.zshrc' }}" 
+  zshrc: "{{ root_dotfiles + '.zshrc' }}"
+  emacsd: "{{ root_dotfiles + '.emacs.d' }}"
 software:
   apt:
     - git
@@ -11,9 +12,9 @@ software:
     - httpie    
     - silversearcher-ag
     - vlc
-    - firefox
     - slack
-    - emacs
+    - firefox
+    - emacs26
   brew:
     - git
     - zsh

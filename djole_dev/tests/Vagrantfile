@@ -6,12 +6,10 @@ Vagrant.configure("2") do |config|
 
   boxes = [    
     { :name => "mac_box", :box => "ashiq/osx-10.14" },
-    { :name => "ubuntu_box", :box => "ubuntu/trusty64" }
+    { :name => "ubuntu_box", :box => "ubuntu/bionic64" }
   ]
   ### Alternative mac boxes:
-  # ramsey/macos-catalina
-  # AndrewDryga/vagrant-box-osx
-  # jhcook/osx-elcapitan-10.11
+  # ramsey/macos-catalina # AndrewDryga/vagrant-box-osx # jhcook/osx-elcapitan-10.11
   boxes.each do |opts|
     config.vm.define opts[:name] do |config|      
       config.vm.box = opts[:box]

@@ -1,5 +1,9 @@
 ---
-# tasks specific to ubuntu
+### tasks specific to Ubuntu
+- name: Add Repository for Emacs 26
+  apt_repository:
+    repo: "ppa:kelleyk/emacs"
+  become: yes
 - name: Install packages with apt
   apt:
     name: "{{ software.apt }}"
