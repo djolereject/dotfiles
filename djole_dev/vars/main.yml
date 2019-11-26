@@ -5,22 +5,19 @@ paths:
   oh_my_zsh: "{{ root_dotfiles + '.oh-my-zsh' }}"
   zshrc: "{{ root_dotfiles + '.zshrc' }}" 
 software:
-  common:
-    - python
-    - python3
+  apt:
     - git
     - zsh
     - httpie    
-  apt:
-    - rustc
     - silversearcher-ag
     - vlc
     - firefox
     - slack
-#    - 'fd-find'
     - emacs
   brew:
-    - rust
+    - git
+    - zsh
+    - httpie    
     - openssl
     - coreutils
     - the_silver_searcher
