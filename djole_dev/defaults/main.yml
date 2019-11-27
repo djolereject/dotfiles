@@ -1,2 +1,48 @@
 ---
-# defaults file for djole_dev
+### Default vars for djole_dev
+
+dotfiles: "~/.dotfiles/"
+shell: "{{ dotfiles + 'shell/' }}"
+zshrc:
+  path: "{{ shell + 'zshrc' }}"
+  link: "~/.zshrc"
+oh_my_zsh:
+  src: "https://github.com/robbyrussell/oh-my-zsh.git"
+  path: "{{ shell + '.oh-my-zsh' }}"
+aliases: "{{ shell + 'aliases' }}"
+env: "{{ shell + 'env' }}"
+
+emacs:
+  src: "https://github.com/djolereject/.emacs.d"
+  path: "{{ dotfiles + '.emacs.d' }}"
+  link: "~/.emacs.d"
+software:
+  apt:
+    - git
+    - zsh
+    - httpie    
+    - silversearcher-ag
+    - vlc
+    - slack
+    - firefox
+    - emacs26
+  brew:
+    - git
+    - zsh
+    - httpie    
+    - openssl
+    - coreutils
+    - the_silver_searcher
+    - tree
+    - bat
+    - fd
+    - noti
+  cask:
+    - qlstephen
+    - vlc
+    - firefox
+    - skype
+    - slack    
+    - emacs
+    - viber
+    - telegram

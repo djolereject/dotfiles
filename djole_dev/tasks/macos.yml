@@ -17,8 +17,6 @@
   shell: defaults write com.apple.dock autohide -bool true
 - name: Move Dock to left
   shell: defaults write com.apple.dock pinning -string start
-- name: Reset Dock
-  shell: killall Dock
   
 ## Finder settings
 - name: List view in Finder by default
