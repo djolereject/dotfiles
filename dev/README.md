@@ -1,9 +1,9 @@
-Djole Dev Ansible Role
+Dev Ansible Role
 =========
 
-My ansible role designed for fast setup of development computer which is usualy MBP with MacOS, but sometimes can be Ubuntu. MacOS tends to also be my main computer so mac role installs some software unrelated to development.
+Ansible role designed for fast setup of development computer which is usually MBP with MacOS, but sometimes can be Ubuntu. MacOS tends to also be my main computer so mac role installs some software unrelated to development.
 
-This is my personal role so it might not suit somebody with different needs, but it's still good starting point in building simple dev environment. Look into list of software installed with apt or homebrew and tweak that list acording to your needs. In the same manner skip copying of .emacs.d from my repository if you have preferred setup for Emacs. In case you don't need Emacs at all, along with removing it from the software list be sure to remove all tasks related to it.
+This is my personal role so it might not suit somebody with different needs, but it's still good starting point in building simple dev environment. Look into list of software installed with apt or homebrew and tweak that list according to your needs. In the same manner skip copying of .emacs.d from my repository if you have preferred setup for Emacs. In case you don't need Emacs at all, along with removing it from the software list be sure to remove all tasks related to it.
 
 Role Variables
 --------------
@@ -11,7 +11,7 @@ Role Variables
 This is a simple role so all variables are defined in [defaults](./defaults/main.yml).
 
 - **dotfiles** and **shell**
-  Directory path where all dotfiles are stored and subdirectory for shell-related files.
+  Directory path where all dotfiles are stored and sub-directory for shell-related files.
 - **zshrc**
   **path** is destination of actual file and **link** is symlink on it from user root. Template for zshrc is in [zshrc](./templates/zshrc.j2).
 - **oh_my_zsh**
@@ -45,6 +45,6 @@ GNU GPLv3
 Author Information
 ------------------
 
-Djordje Knezevic
+Đorđe Knežević
 
 email: djolereject@gmail.com
