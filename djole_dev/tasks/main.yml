@@ -1,12 +1,17 @@
 ---
-### tasks file for djole_dev
+### All tasks
+
+## OS-specific
 - import_tasks: ubuntu.yml
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 - import_tasks: macos.yml
   when: ansible_distribution == 'MacOSX'
+
 ## zsh
 - name: Change current user shell
-  user: shell=/bin/zsh name="{{ ansible_ssh_user }}"
+  user:
+    shell: /bin/zsh
+    name: "{{ ansible_ssh_user }}"
   become: yes
 - name: Install oh-my-zsh
   git:
@@ -18,14 +23,19 @@
     src: zshrc.j2
     dest: "{{ zshrc.path }}"
 - name: Copy aliases to dotfiles
-  template: src=aliases.j2 dest="{{ aliases }}"
+  template:
+    src: aliases.j2
+    dest: "{{ aliases }}"
 - name: Copy env to dotfiles
-  template: src=env.j2 dest="{{ env }}"
+  template:
+    src: env.j2
+    dest: "{{ env }}"
 - name: Make symlink for zshrc
   file:
     src: "{{ zshrc.path }}"
     dest: "{{ zshrc.link }}"
     state: link
+
 ## emacs
 - name: Copy emacs.d to dotfiles
   git:
