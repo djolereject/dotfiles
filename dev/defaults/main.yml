@@ -13,7 +13,7 @@ aliases: "{{ shell + 'aliases' }}"
 env: "{{ shell + 'env' }}"
 
 emacs:
-  src: "https://github.com/djolereject/.emacs.d"
+  src: "git@github.com:djolereject/.emacs.d.git"
   path: "{{ dotfiles + '.emacs.d' }}"
   link: "~/.emacs.d"
 software:
