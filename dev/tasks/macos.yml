@@ -11,6 +11,7 @@
 - name: Install packages with Brew Cask
   homebrew_cask:
     name: "{{ software.cask }}"
+    accept_external_apps: yes
     
 ## Dock settings
 - name: Automatically show and hide Dock

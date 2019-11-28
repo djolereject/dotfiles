@@ -1,4 +1,4 @@
-Dev Ansible Role
+Development Ansible Role
 =========
 
 Ansible role designed for fast setup of development computer which is usually MBP with MacOS, but sometimes can be Ubuntu. MacOS tends to also be my main computer so mac role installs some software unrelated to development.
@@ -36,7 +36,11 @@ Both operating systems can be created from [tests](./tests/) directory with comm
 
 `vagrant up`
 
-This creates two boxes with Ubuntu 18 and MacOS 10.14.
+This creates two boxes with Ubuntu 18 and MacOS 10.14 and make provision to them. Changes to playbooks or vars should be tried out in those systems first before applying it to somewhere important.
+
+Actual provision in local should be done by running **local.yml** and entering sudo password when prompted:
+
+`ansible-playbook local.yml --ask-become-pass`
 
 License
 -------

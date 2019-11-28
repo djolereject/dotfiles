@@ -1,0 +1,5 @@
+---
+### For running roles locally with command `ansible-playbook local.yml`
+- hosts: localhost
+  roles:
+    - ./
