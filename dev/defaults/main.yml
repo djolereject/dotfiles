@@ -26,6 +26,8 @@ software:
     - slack
     - firefox
     - emacs26
+    - rbenv
+    - yarn
   brew:
     - git
     - zsh
@@ -37,6 +39,8 @@ software:
     - bat
     - fd
     - noti
+    - rbenv
+    - yarn
   cask:
     - qlstephen
     - vlc

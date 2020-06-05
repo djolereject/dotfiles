@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
   boxes = [    
-    { :name => "mac_box", :box => "ashiq/osx-10.14" },
+#    { :name => "mac_box", :box => "ashiq/osx-10.14" },
     { :name => "ubuntu_box", :box => "ubuntu/bionic64" }
   ]
   ### Alternative mac boxes:
